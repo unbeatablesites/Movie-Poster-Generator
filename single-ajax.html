@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Single AJAX</title>
+</head>
+
+<body>
+  
+  <img alt="Loading" id="image" src="">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+    var title= prompt("Type a movie name ");
+
+    var queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      // console.log(response);
+      // console.log(response["poster"]);
+      $("#image").attr("src",(response["Poster"]));
+      // console.log(response.Runtime);
+    });
+// ---------------------------------------------------------
+
+   
+  </script>
+
+</body>
+
+</html>
